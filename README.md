@@ -63,6 +63,7 @@ To get started with Paneshift Pagination, follow these steps:
 ## Must Know
 
 - **usePagination.js** All of the logic for the pagination is located in this file.
+- **Illusion.js** Dummy data used.
 - **App.jsx** Your App's entry point. 
 ```
     You just need to pass your (API's Fetched) data i.e right now the dummy data form /data/Illusion.js
@@ -72,9 +73,9 @@ To get started with Paneshift Pagination, follow these steps:
     someFunction,
 } = usePagination({ data: yourData });
 ```
-- **PrePagination.jsx**
-- **Table.jsx**
-- **Pagination.jsx**
+- **PrePagination.jsx** Total pages, search filter, bulk selection option and row selection UI.
+- **Table.jsx** The table's UI.
+- **Pagination.jsx** Total rows and Pagination buttons UI.
 
 ## Documentation
 
