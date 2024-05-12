@@ -168,7 +168,18 @@ main {
 }
 
 main h2 {
-    font-size: 40px;
+    font-size: 30px;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+
+main p {
+    font-size: 20px;
+    padding: 0 0 10px 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: 1px solid rgba(156, 152, 152, 0.1);
 }
 
 footer {

@@ -8,6 +8,9 @@ table {
     border-radius: 5px;
     overflow-x: hidden;
     overflow-y: auto;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
 }
 
 table tr {

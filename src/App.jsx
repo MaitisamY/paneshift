@@ -52,15 +52,13 @@ function App() {
             <header>
                 <p>
                     <img src={PaneshiftLogo} alt="Logo" width={50} />
-                    <h1>Paneshift</h1>
                 </p>
                 <a target="_blank" href="https://muhammad-aitisam.gitbook.io/pagination/"><MdOutlineFileCopy size={20} /> Docs</a>
             </header>
 
             <main>
-                <h2>
-                    Welcome to Paneshift
-                </h2>
+                <h2>Welcome to Paneshift</h2>
+                <p>The easiest pagination tool for React built on top of Vite+React</p>
                 
                 <PrePagination
                     serachPlaceholder="Search illusions..."
