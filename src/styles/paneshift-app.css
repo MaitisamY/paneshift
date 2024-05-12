@@ -1,0 +1,214 @@
+@font-face {
+    font-family: 'Fira Sans Regular';
+    src: url('/fonts/Fira_Sans/FiraSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fira Sans Medium';
+    src: url('/fonts/Fira_Sans/FiraSans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fira Sans Bold';
+    src: url('/fonts/Fira_Sans/FiraSans-Bold.ttf') format('truetype');
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #2e386bc7;
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #2e386b;
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-track:hover {
+    background-color: transparent;
+}
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: rgb(56, 57, 78);
+
+    --text-color-theme: #2e386b;
+    --text-color-black: rgb(56, 57, 78);
+    --text-color-blue: rgb(13, 13, 228);
+    --text-color-red: rgb(228, 13, 13);
+    --text-color-green: rgb(30, 172, 30);
+    --border-color: rgba(243, 237, 237, 0.185);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Fira Sans Regular", sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+}
+
+.below-300-pixels {
+    display: none;
+}
+
+@media screen and (max-width: 299px) {
+    #root {
+        display: none;
+    }
+
+    .below-300-pixels {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        padding: 20px;
+        margin: 0;
+    }
+}
+
+header {
+    width: 60%;
+    height: auto;
+    margin: 20px 0 0 0;
+    padding: 5px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    font-size: 20px;
+    font-family: "Fira Sans Bold", sans-serif;
+    color: var(--text-color-theme);
+}
+
+header p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header a {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-color-theme);
+    font-family: "Fira Sans Regular", sans-serif;
+}
+
+header a:hover {
+    color: var(--text-color-black);
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        width: 90%;
+        padding: 5px 10px;
+        font-size: 15px;
+    }
+}
+
+main {
+    margin: 25px 0 0 0;
+    padding: 25px 25px;
+    width: 60%;
+    height: auto;
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        width: 90%;
+    }
+}
+
+main h2 {
+    font-size: 40px;
+}
+
+footer {
+    width: 60%;
+    height: auto;
+    margin: 0 0 20px 0;
+    padding: 5px 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.02);
+    box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(8px);
+    border-radius: 50px;
+    font-size: 20px;
+    font-family: "Fira Sans Regular", sans-serif;
+    color: var(--text-color-black);
+}
+
+footer p {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+footer p a {
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-color-theme);
+    font-family: "Fira Sans Regular", sans-serif;
+}
+
+
+  
