@@ -1,7 +1,6 @@
 .pre-pagination {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: auto;
@@ -32,18 +31,31 @@
 
 .pre-pagination input,
 .pagination input {
-    width: 40%;
+    width: 50%;
     height: auto;
     padding: 10px 10px;
     margin: 0;
-    border: 1px solid #cccccc98;
+    outline: 1px solid #cccccc98;
     border-radius: 5px;
     font-size: small;
     font-weight: 400;
     color: var(--text-color);
     background-color: transparent;
-    outline: none;
+    border: none;
     font-family: "Inter", sans-serif;
+}
+
+.pre-pagination input:hover,
+.pagination input:hover {
+    background-color: #EFEFF9;
+}
+
+.pre-pagination input:focus,
+.pagination input:focus,
+.pre-pagination input:active, 
+.pagination input:active {
+    outline: 2px solid var(--text-color-theme);
+    box-shadow: 0px 0px 8px -2px var(--text-color-theme);
 }
 
 .pre-pagination select,
@@ -59,6 +71,17 @@
     background-color: var(--background-color);
     outline: none;
     font-family: "Inter", sans-serif;
+}
+
+.pre-pagination select:hover,
+.pagination select:hover {
+    background-color: #EFEFF9;
+}
+
+.pre-pagination select:focus,
+.pagination select:focus {
+    outline: 2px solid var(--text-color-theme);
+    box-shadow: 0px 0px 8px -2px var(--text-color-theme);
 }
 
 .pre-pagination button {
@@ -78,34 +101,43 @@
     box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
 }
 
-.pre-pagination button .tooltip {
-    display: none;
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translate(-50%, -80%);
-    width: max-content;
+.pagination button {
+    position: relative;
     height: auto;
-    padding: 5px 10px;
-    margin: 0;
+    padding: 10px 12px;
+    margin: 0 0 0 10px;
     border-radius: 5px;
     font-size: small;
-    font-weight: 600;
-    color: rgb(243, 237, 237);
-    background-color: rgb(28, 29, 51);
-    box-shadow: 0px 0px 10px -2px rgb(28, 29, 51);
+    font-weight: 400;
+    color: var(--text-color-theme);
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-family: "Inter", sans-serif;
     transition: all 0.2s ease-in-out;
+    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
 }
 
-.pre-pagination button .tooltip::after {
-    content: "";
-    position: absolute;
-    top: 95%;
-    left: 48%;
-    margin-left: -5px;
-    border-width: 7px;
-    border-style: solid;
-    border-color: rgb(28, 29, 51) transparent transparent transparent;
+.pre-pagination button:disabled,
+.pagination button:disabled,
+.pre-pagination button:disabled:hover,
+.pagination button:disabled:hover {
+    background-color: #cccccc98;
+    outline: none;
+    color: rgba(0, 0, 0, 1);
+    cursor: not-allowed;
+    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
+}
+
+.pre-pagination button[disabled],
+.pagination button[disabled],
+.pre-pagination button[disabled]:hover,
+.pagination button[disabled]:hover {
+    background-color: #cccccc98;
+    outline: none;
+    color: rgba(0, 0, 0, 1);
+    cursor: not-allowed;
+    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
 }
 
 .pre-pagination button.bg-orange,
@@ -158,55 +190,82 @@
 
 .pre-pagination button:hover,
 .pagination button:hover {
-    background-color: var(--text-color-blue);
-    outline: 1px solid var(--text-color-blue);
-    color: #fff;
+    background-color: #EFEFF9;
+    color: #2e386b;
     cursor: pointer;
 }
 
 .pre-pagination button.active,
 .pagination button.active {
-    background-color: var(--text-color-blue);
-    outline: 1px solid var(--text-color-blue);
-    color: #fff;
+    background-color: #EFEFF9;
+    outline: 1px solid #EFEFF9;
+    color: #2e386b;
     cursor: pointer;
 }
 
-.pagination button {
-    position: relative;
-    height: auto;
-    padding: 10px 12px;
-    margin: 0 0 0 10px;
-    border-radius: 5px;
-    font-size: small;
-    font-weight: 400;
-    color: var(--text-color-theme);
-    border: none;
-    background-color: transparent;
-    outline: none;
-    font-family: "Inter", sans-serif;
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
+.pre-pagination .first {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.pre-pagination button:disabled,
-.pagination button:disabled,
-.pre-pagination button:disabled:hover,
-.pagination button:disabled:hover {
-    background-color: #cccccc98;
-    outline: none;
-    color: rgba(0, 0, 0, 1);
-    cursor: not-allowed;
-    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
+.pre-pagination .last {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.pre-pagination button[disabled],
-.pagination button[disabled],
-.pre-pagination button[disabled]:hover,
-.pagination button[disabled]:hover {
-    background-color: #cccccc98;
-    outline: none;
-    color: rgba(0, 0, 0, 1);
-    cursor: not-allowed;
-    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
+@media screen and (max-width: 768px) {
+
+    .pre-pagination,
+    .pagination {
+        flex-direction: column;
+    }
+
+    .pre-pagination span,
+    .pagination span {
+        font-size: 12px;
+    }
+
+    .pagination span {
+        margin: 0 0 15px 0;
+    }
+
+    .pre-pagination input,
+    .pagination input {
+        width: 100%;
+    }
+
+    .pre-pagination select,
+    .pagination select {
+        padding: 10px 5px;
+    }
+
+    .pre-pagination button {
+        padding: 10px 6px;
+        margin: 0 0 0 0;
+        font-size: 12px;
+    }
+
+    .pre-pagination .first {
+        width: 100%;
+        margin: 10px 0;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .pre-pagination .last {
+        width: 100%;
+        gap: 10px;
+        margin: 5px 0;
+    }
+    
 }

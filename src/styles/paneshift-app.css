@@ -48,6 +48,8 @@
     --text-color-red: rgb(228, 13, 13);
     --text-color-green: rgb(30, 172, 30);
     --border-color: rgba(243, 237, 237, 0.185);
+    --border-color-theme: rgba(46, 56, 107, 0.08);
+    --bg-color-theme: #2e386b;
 }
 
 * {
@@ -103,6 +105,26 @@ body {
     }
 }
 
+.text-theme {
+    color: var(--text-color-theme);
+}
+
+.text-blue {
+    color: var(--text-color-blue);
+}
+
+.text-red {
+    color: var(--text-color-red);
+}
+
+.text-green {
+    color: var(--text-color-green);
+}
+
+.text-black {
+    color: var(--text-color-black);
+}
+
 header {
     width: 60%;
     height: auto;
@@ -113,7 +135,7 @@ header {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    background: rgba(0, 0, 0, 0.02);
+    background: #EFEFF9;
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(8px);
     border-radius: 50px;
@@ -161,12 +183,6 @@ main {
     height: auto;
 }
 
-@media screen and (max-width: 768px) {
-    main {
-        width: 90%;
-    }
-}
-
 main h2 {
     font-size: 30px;
     padding: 0 0 10px 0;
@@ -182,21 +198,36 @@ main p {
     border-bottom: 1px solid rgba(156, 152, 152, 0.1);
 }
 
+@media screen and (max-width: 768px) {
+    main {
+        width: 100%;
+    }
+
+    main h2 {
+        font-size: 22px;
+    }
+    
+    main p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
 footer {
     width: 60%;
     height: auto;
     margin: 0 0 20px 0;
-    padding: 5px 50px;
+    padding: 10px 50px;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    background: rgba(0, 0, 0, 0.02);
+    background: #EFEFF9;
     box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(8px);
     border-radius: 50px;
-    font-size: 20px;
+    font-size: 15px;
     font-family: "Fira Sans Regular", sans-serif;
     color: var(--text-color-black);
 }
@@ -221,5 +252,12 @@ footer p a {
     font-family: "Fira Sans Regular", sans-serif;
 }
 
+@media screen and (max-width: 768px) {
+    footer {
+        width: 90%;
+        padding: 10px 10px;
+        font-size: 15px;
+    }
+}
 
   

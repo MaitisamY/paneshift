@@ -1,7 +1,8 @@
-import '../styles/paneshift-pagination.css'
+// Import necessary modules and styles
+import '../styles/paneshift-pagination.css';
+import { FaTrashAlt } from 'react-icons/fa';
 
-import { FaTrashAlt } from 'react-icons/fa'
-
+// PrePagination component
 function PrePagination({ 
     serachPlaceholder,
     totalPages, 
@@ -12,31 +13,40 @@ function PrePagination({
 
     return (
         <div className="pre-pagination">
-            <span>Total pages: {totalPages}</span>
-            <input 
-                type="text" 
-                onChange={onHandleSearchTerm && onHandleSearchTerm} 
-                placeholder={serachPlaceholder ? serachPlaceholder : 'Search...'} 
-            />
-            <div>
-            {
-                selectedItems && selectedItems.length > 1 && (
-                    <button className="bg-red">
-                        <FaTrashAlt /> Delete selection ({selectedItems.length})
-                    </button>
-                )
-            }
+            {/* Display total pages */}
+            <div className="first">
+                <span>Total pages: {totalPages}</span>
+                {/* Search input */}
+                <input 
+                    type="text" 
+                    onChange={onHandleSearchTerm && onHandleSearchTerm} 
+                    placeholder={serachPlaceholder ? serachPlaceholder : 'Search...'} 
+                />
             </div>
-            <div>
-            <span>Showing</span> <select name="items-per-page" id="items-per-page" onChange={onHandleItemsPerPage && onHandleItemsPerPage}>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="200">200</option>
-                </select> <span>rows</span>
+            {/* Display delete button if multiple items are selected */}
+            <div className="last">
+                <div>
+                {
+                    selectedItems && selectedItems.length > 1 && (
+                        <button className="bg-red">
+                            <FaTrashAlt /> Delete selection ({selectedItems.length})
+                        </button>
+                    )
+                }
+                </div>
+                {/* Dropdown to select items per page */}
+                <div>
+                    <span>Showing</span> <select name="items-per-page" id="items-per-page" onChange={onHandleItemsPerPage && onHandleItemsPerPage}>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                        <option value="200">200</option>
+                    </select> <span>rows</span>
+                </div>
             </div>
         </div>
     )
 }
 
-export default PrePagination
+export default PrePagination; // Export PrePagination component
+
