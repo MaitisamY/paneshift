@@ -1,10 +1,10 @@
 {
   "name": "paneshift",
-  "description": "",
-  "author": "",
+  "description": "Paneshift Pagination is an easy-to-use pagination tool for React built on top of Vite+React. It simplifies the process of implementing pagination in your React projects, offering various features such as search functionality, customizable items per page, and selection of multiple items.",
+  "author": "Muhammad Aitisam Yaseen",
   "license": "MIT",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
