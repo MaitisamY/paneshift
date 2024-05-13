@@ -20,8 +20,21 @@
     margin: 0;
 }
 
+.more-options {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(156, 152, 152, 0.2);
+}
+
 .pre-pagination span,
-.pagination span {
+.pagination span,
+.more-options span {
     width: fit-content;
     height: auto;
     padding: 0;
@@ -30,7 +43,8 @@
 }
 
 .pre-pagination input,
-.pagination input {
+.pagination input,
+.more-options input {
     width: 50%;
     height: auto;
     padding: 10px 10px;
@@ -46,20 +60,24 @@
 }
 
 .pre-pagination input:hover,
-.pagination input:hover {
+.pagination input:hover,
+.more-options input:hover {
     background-color: #EFEFF9;
 }
 
 .pre-pagination input:focus,
 .pagination input:focus,
 .pre-pagination input:active, 
-.pagination input:active {
+.pagination input:active,
+.more-options input:focus,
+.more-options input:active {
     outline: 2px solid var(--text-color-theme);
     box-shadow: 0px 0px 8px -2px var(--text-color-theme);
 }
 
 .pre-pagination select,
-.pagination select {
+.pagination select,
+.more-options select {
     height: auto;
     padding: 10px 10px;
     margin: 0;
@@ -74,12 +92,14 @@
 }
 
 .pre-pagination select:hover,
-.pagination select:hover {
+.pagination select:hover,
+.more-options select:hover {
     background-color: #EFEFF9;
 }
 
 .pre-pagination select:focus,
-.pagination select:focus {
+.pagination select:focus,
+.pre-pagination select:focus {
     outline: 2px solid var(--text-color-theme);
     box-shadow: 0px 0px 8px -2px var(--text-color-theme);
 }
@@ -118,10 +138,30 @@
     box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
 }
 
+.more-options button {
+    position: relative;
+    height: auto;
+    padding: 10px 12px;
+    margin: 0 0 0 10px;
+    border-radius: 5px;
+    font-size: small;
+    font-weight: 400;
+    color: var(--text-color);
+    border: none;
+    background-color: var(--background-color);
+    outline: 1px solid #8f8f8f;
+    font-family: "Inter", sans-serif;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
+}
+
+
 .pre-pagination button:disabled,
 .pagination button:disabled,
 .pre-pagination button:disabled:hover,
-.pagination button:disabled:hover {
+.pagination button:disabled:hover,
+.more-options button:disabled,
+.more-options button:disabled:hover {
     background-color: #cccccc98;
     outline: none;
     color: rgba(0, 0, 0, 1);
@@ -132,7 +172,9 @@
 .pre-pagination button[disabled],
 .pagination button[disabled],
 .pre-pagination button[disabled]:hover,
-.pagination button[disabled]:hover {
+.pagination button[disabled]:hover,
+.more-options button[disabled], 
+.more-options button[disabled]:hover {
     background-color: #cccccc98;
     outline: none;
     color: rgba(0, 0, 0, 1);
@@ -141,7 +183,8 @@
 }
 
 .pre-pagination button.bg-orange,
-.pagination button.bg-orange {
+.pagination button.bg-orange,
+.more-options button.bg-orange {
     background-color: #ffa500;
     color: #f3eded;
     border: none;
@@ -149,7 +192,8 @@
 }
 
 .pre-pagination button.bg-orange:hover,
-.pagination button.bg-orange:hover {
+.pagination button.bg-orange:hover,
+.more-options button.bg-orange:hover {
     background-color: #ffa600e1;
     color: #fff;
     border: none;
@@ -157,7 +201,8 @@
 }
 
 .pre-pagination button.bg-blue,
-.pagination button.bg-blue {
+.pagination button.bg-blue,
+.more-options button.bg-blue {
     background-color: #3131eb;
     color: #f3eded;
     border: none;
@@ -165,7 +210,8 @@
 }
 
 .pre-pagination button.bg-blue:hover,
-.pagination button.bg-blue:hover {
+.pagination button.bg-blue:hover,
+.more-options button.bg-blue:hover {
     background-color: var(--text-color-blue);
     color: #fff;
     border: none;
@@ -173,7 +219,8 @@
 }
 
 .pre-pagination button.bg-red,
-.pagination button.bg-red {
+.pagination button.bg-red,
+.more-options button.bg-red {
     background-color: var(--text-color-red);
     color: #f3eded;
     border: none;
@@ -181,7 +228,8 @@
 }
 
 .pre-pagination button.bg-red:hover,
-.pagination button.bg-red:hover {
+.pagination button.bg-red:hover,
+.more-options button.bg-red:hover {
     background-color: var(--text-color-red);
     color: #fff;
     border: none;
@@ -189,21 +237,24 @@
 }
 
 .pre-pagination button:hover,
-.pagination button:hover {
+.pagination button:hover,
+.more-options button:hover {
     background-color: #EFEFF9;
     color: #2e386b;
     cursor: pointer;
 }
 
 .pre-pagination button.active,
-.pagination button.active {
+.pagination button.active,
+.more-options button.active {
     background-color: #EFEFF9;
     outline: 1px solid #EFEFF9;
     color: #2e386b;
     cursor: pointer;
 }
 
-.pre-pagination .first {
+.pre-pagination .first,
+.more-options .first {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -213,7 +264,8 @@
     flex-wrap: wrap;
 }
 
-.pre-pagination .last {
+.pre-pagination .last,
+.more-options .last {
     width: 50%;
     display: flex;
     flex-direction: row;
@@ -221,6 +273,60 @@
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+}
+
+.more-options .last .dropdown {
+    position: relative;
+    width: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.more-options .last .dropdown .menu {
+    position: absolute;
+    top: 102%;
+    right: 0;
+    z-index: 1;
+    background-color: #EFEFF9;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px -2px rgba(211, 208, 208, 0.2);
+    border: 1px solid #cccccc98;
+    width: 100%;
+    height: auto;
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.more-options .last .dropdown:hover .menu {
+    display: block;
+}
+
+.more-options .last .dropdown:hover .menu .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.more-options .last .dropdown:hover .menu .content a {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 10px;
+    margin: 0;
 }
 
 @media screen and (max-width: 768px) {

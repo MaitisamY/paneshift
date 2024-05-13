@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'; // Import React and necessary hooks
+import { useState, useEffect, lazy, Suspense } from 'react'; // Import React and necessary hooks
 import './styles/paneshift-app.css'; // Import CSS file
 import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast notifications
 import PaneshiftLogo from './assets/logo.png'; // Import logo image
@@ -7,7 +7,7 @@ import PaneshiftLogo from './assets/logo.png'; // Import logo image
 import { usePagination } from './hooks/usePagination';
 import { ILLUSION } from './data/Illusion.js';
 import Pagination from './components/Pagination';
-import Table from './components/Table';
+const Table = lazy(() => import('./components/Table'));
 import PrePagination from './components/PrePagination';
 import { ToastContainer } from 'react-toastify';
 import { MdOutlineFileCopy } from 'react-icons/md';
@@ -37,6 +37,29 @@ function App() {
 
     // Calculate items to display on current page
     const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+    // Sort items in ascending order by id
+    // const handleSortAscById = () => {
+    //     const sortedData = [...currentItems].sort((a, b) => a.id - b.id);
+    //     setCurrentItems(sortedData);
+    // }
+
+    // // Sort items in ascending order by name
+    // const handleSortAscByName = () => {
+    //     const sortedData = [...currentItems].sort((a, b) => a.name.localeCompare(b.name));
+    //     setCurrentItems(sortedData);
+    // }
+
+    // // Sort items in descending order by id
+    // const handleSortDescById = () => {
+    //     const sortedData = [...currentItems].sort((a, b) => b.id - a.id);
+    //     setCurrentItems(sortedData);
+    // }
+
+    // // Sort items in descending order by name
+    // const handleSortDescByName = () => {
+    //     const sortedData = [...currentItems].sort((a, b) => b.name.localeCompare(a.name));
+    //     setCurrentItems(sortedData);
+    // }
     // Filter items based on search term
     const filteredItems = data.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -62,7 +85,13 @@ function App() {
                     <h1>Paneshift</h1>
                 </p>
                 {/* Link to documentation */}
-                <a target="_blank" href="https://muhammad-aitisam.gitbook.io/pagination/"><MdOutlineFileCopy size={20} /> Docs</a>
+                <a 
+                    rel="noreferrer" 
+                    target="_blank" 
+                    href="https://muhammad-aitisam.gitbook.io/pagination/"
+                >
+                    <MdOutlineFileCopy size={20} /> Docs
+                </a>
             </header>
 
             {/* Main content */}
@@ -82,16 +111,18 @@ function App() {
 
                 {/* Table section */}
                 <section>
-                    <Table
-                        data={data}
-                        searchTerm={searchTerm}
-                        onHandleSearchTerm={handleSearchTerm}
-                        currentItems={currentItems}
-                        filteredItems={filteredItems}
-                        selectedItems={selectedItems}
-                        onSetSelectedItems={setSelectedItems}
-                        onHandleSelection={handleSelection}
-                    />
+                    <Suspense fallback={<p>Loading...</p>}>
+                        <Table
+                            data={data}
+                            searchTerm={searchTerm}
+                            onHandleSearchTerm={handleSearchTerm}
+                            currentItems={currentItems}
+                            filteredItems={filteredItems}
+                            selectedItems={selectedItems}
+                            onSetSelectedItems={setSelectedItems}
+                            onHandleSelection={handleSelection}
+                        />
+                    </Suspense>
                 </section>
 
                 {/* Pagination section */}

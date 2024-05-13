@@ -17,46 +17,55 @@ function Table({
         <table>
             {/* Table header */}
             <thead>
-                <tr>
-                    {/* Checkbox for selecting all items */}
-                    <th>
-                        <div>
-                            {selectedItems.length > 0 ? (
-                                <span>
-                                    <MdCheckBox 
-                                        className="text-green"
-                                        size={20} 
-                                        onClick={() => onSetSelectedItems([])} 
-                                    />
-                                </span>
-                            ) : (
-                                <span>
-                                    <MdCheckBoxOutlineBlank 
-                                        size={20} 
-                                        onClick={() => onSetSelectedItems(data.map(item => item.id))} 
-                                    />
-                                </span>
-                            )}
-                        </div>
-                    </th>
-                    {/* Table headers for each data field */}
-                    {Object.keys(data[0]).map((key, index) => (
-                        <th key={index}>
-                            {/* Convert snake_case to title case */}
-                            {key === 'id' ? '#' : 
-                                key.includes('_') ? 
-                                    key.split('_').map((word, i) => 
-                                        i === 0 ? 
-                                            word.charAt(0).toUpperCase() + word.slice(1) :
-                                            word.charAt(0).toUpperCase() + word.slice(1)
-                                    ).join(' ') : 
-                                    key.charAt(0).toUpperCase() + key.slice(1)
-                            }
+                {
+                    filteredItems.length === 0 ? 
+                        <tr>
+                            <th className="zero-results" colSpan={Object.keys(data[0]).length + 1}>
+                                No results found
+                            </th>
+                        </tr> 
+                    :
+                    <tr>
+                        {/* Checkbox for selecting all items */}
+                        <th>
+                            <div>
+                                {selectedItems.length > 0 ? (
+                                    <span>
+                                        <MdCheckBox 
+                                            className="text-green"
+                                            size={20} 
+                                            onClick={() => onSetSelectedItems([])} 
+                                        />
+                                    </span>
+                                ) : (
+                                    <span>
+                                        <MdCheckBoxOutlineBlank 
+                                            size={20} 
+                                            onClick={() => onSetSelectedItems(data.map(item => item.id))} 
+                                        />
+                                    </span>
+                                )}
+                            </div>
                         </th>
-                    ))}
-                    {/* Actions column */}
-                    <th>Actions</th>
-                </tr>
+                        {/* Table headers for each data field */}
+                        {Object.keys(data[0]).map((key, index) => (
+                            <th key={index}>
+                                {/* Convert snake_case to title case */}
+                                {key === 'id' ? '#' : 
+                                    key.includes('_') ? 
+                                        key.split('_').map((word, i) => 
+                                            i === 0 ? 
+                                                word.charAt(0).toUpperCase() + word.slice(1) :
+                                                word.charAt(0).toUpperCase() + word.slice(1)
+                                        ).join(' ') : 
+                                        key.charAt(0).toUpperCase() + key.slice(1)
+                                }
+                            </th>
+                        ))}
+                        {/* Actions column */}
+                        <th>Actions</th>
+                    </tr>
+                }
             </thead>
             {/* Table body */}
             {!searchTerm ? ( // Render table body without search filter
@@ -110,12 +119,6 @@ function Table({
                             </td>
                         </tr>
                     ))}
-                </tbody>
-            ) : filteredItems === 0 ? ( // Render no results message if filteredItems is empty
-                <tbody>
-                    <tr>
-                        <td colSpan={5}>No results found</td>
-                    </tr>
                 </tbody>
             ) : ( // Render table body with search filter
                 <tbody>
