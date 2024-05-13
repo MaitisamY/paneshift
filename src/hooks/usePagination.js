@@ -53,12 +53,12 @@ export const usePagination = ({ data: data }) => {
         setItemsPerPage(e.target.value)
 
         toast.success('Items per page updated to: ' + e.target.value, {
-            position: "top-right",
+            position: "bottom-center",
             autoClose: 6000,
             hideProgressBar: true,
             closeOnClick: true,
             pauseOnHover: true,
-            draggable: false,
+            draggable: true,
             progress: undefined,
         })
     }
