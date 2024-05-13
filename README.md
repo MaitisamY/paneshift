@@ -62,17 +62,50 @@ To get started with Paneshift Pagination, follow these steps:
 
 ## Must Know
 
-- **usePagination.js** All of the logic for the pagination is located in this file.
-- **Illusion.js** Dummy data used.
+- **usePagination.js** All of the logic for the pagination is located in this file. Located at root/src/hooks/ => usePagination.js
+- **Illusion.js** Dummy data used. Located at root/src/data/ => Illusion.js
+```
+    const ILLUSION = [
+    {
+        id: 1,
+        name: "Illusion 1",
+        age: 25,
+        the_dream: "I saw I was drowning, I saw I was dying and no one was around to hear me screaming and shouting.",
+        remark: "I was dead scared!"
+    },
+    {
+        id: 2,
+        name: "Illusion 2",
+        age: 30,
+        the_dream: "I dreamt I was flying over a vast ocean, feeling free and weightless.",
+        remark: "It was exhilarating!"
+    },
+    {
+        id: 3,
+        name: "Illusion 3",
+        age: 22,
+        the_dream: "I found myself in a forest filled with talking animals and mystical creatures.",
+        remark: "It felt like a magical adventure!"
+    },
+    ...
+    ...
+    ...
+    ]
+```
+
 - **App.jsx** Your App's entry point. 
 ```
-    You just need to pass your (API's Fetched) data i.e right now the dummy data form /data/Illusion.js
+    These two imports are cruicial for the current pagination to work.
 
-    const {
-    someState,
-    someFunction,
-} = usePagination({ data: yourData });
+    import { usePagination } from './hooks/usePagination';
+    import { ILLUSION } from './data/Illusion.js';
+
+    You just need to pass your (API's Fetched) data i.e right now the dummy data "Illusion".
+    And destructure and get the states and functions out of usePagination hook.
+
+    const { someState, someFunction } = usePagination({ data: Illusion });
 ```
+
 - **PrePagination.jsx** Total pages, search filter, bulk selection option and row selection UI.
 - **Table.jsx** The table's UI.
 - **Pagination.jsx** Total rows and Pagination buttons UI.
