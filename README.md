@@ -68,6 +68,10 @@ For detailed documentation and examples, visit [Paneshift Documentation](https:/
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Demo
+
+You can check out the live demo [here](https://paneshift-pagination.vercel.app/)
+
 ## Author
 
 Made with ❤️ by [Muhammad Aitisam Yaseen](https://github.com/MaitisamY).
