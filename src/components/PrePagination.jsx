@@ -14,8 +14,8 @@ function PrePagination({
     return (
         <>
             <div className="pre-pagination">
-                {/* Display total pages */}
                 <div className="first">
+                    {/* Display total pages */}
                     <span>Total pages: {totalPages}</span>
                     {/* Search input */}
                     <input 
@@ -24,7 +24,7 @@ function PrePagination({
                         placeholder={serachPlaceholder ? serachPlaceholder : 'Search...'} 
                     />
                 </div>
-                {/* Display delete button if multiple items are selected */}
+                
                 <div className="last">
                     {/* Dropdown to select items per page */}
                     <div>
@@ -38,6 +38,7 @@ function PrePagination({
                 </div>
             </div>
             <div className="more-options">
+                {/* Display delete button if multiple items are selected */}
                 <div className="first">
                     {
                         selectedItems && selectedItems.length > 1 && (
@@ -49,7 +50,7 @@ function PrePagination({
                 </div>
                 {/* Display delete button if multiple items are selected */}
                 <div className="last">
-                    <button className="dropdown">
+                    <a className="dropdown">
                         Sort by <FaSortAlphaDown />
 
                         <div className="menu">
@@ -59,7 +60,7 @@ function PrePagination({
                                 </a>
                             </div>
                         </div>
-                    </button>
+                    </a>
                 </div>
             </div>
         </>

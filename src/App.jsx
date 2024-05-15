@@ -37,29 +37,19 @@ function App() {
 
     // Calculate items to display on current page
     const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
     // Sort items in ascending order by id
-    // const handleSortAscById = () => {
-    //     const sortedData = [...currentItems].sort((a, b) => a.id - b.id);
-    //     setCurrentItems(sortedData);
-    // }
+    const handleSortAscById = () => {
+        const sortedData = [...currentItems].sort((a, b) => a.id - b.id);
+        setData(sortedData);
+    }
 
-    // // Sort items in ascending order by name
-    // const handleSortAscByName = () => {
-    //     const sortedData = [...currentItems].sort((a, b) => a.name.localeCompare(b.name));
-    //     setCurrentItems(sortedData);
-    // }
+    // Sort items in descending order by id
+    const handleSortDescById = () => {
+        const sortedData = [...currentItems].sort((a, b) => b.id - a.id);
+        setData(sortedData);
+    }
 
-    // // Sort items in descending order by id
-    // const handleSortDescById = () => {
-    //     const sortedData = [...currentItems].sort((a, b) => b.id - a.id);
-    //     setCurrentItems(sortedData);
-    // }
-
-    // // Sort items in descending order by name
-    // const handleSortDescByName = () => {
-    //     const sortedData = [...currentItems].sort((a, b) => b.name.localeCompare(a.name));
-    //     setCurrentItems(sortedData);
-    // }
     // Filter items based on search term
     const filteredItems = data.filter(item => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
 
@@ -70,7 +60,7 @@ function App() {
         }
     }, [currentPage, totalPages]);
 
-    // Render UI
+    // Render component
     return (
         <>
             {/* Toast notification container */}
@@ -121,6 +111,8 @@ function App() {
                             selectedItems={selectedItems}
                             onSetSelectedItems={setSelectedItems}
                             onHandleSelection={handleSelection}
+                            onSortAscId={handleSortAscById}
+                            onSortDescId={handleSortDescById}
                         />
                     </Suspense>
                 </section>

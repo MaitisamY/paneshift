@@ -1,6 +1,6 @@
 // Import necessary modules and styles
 import '../styles/paneshift-table.css';
-import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import { FaTrashAlt, FaEdit, FaSortNumericDown, FaSortNumericUpAlt } from 'react-icons/fa';
 import { MdCheckBox, MdCheckBoxOutlineBlank } from 'react-icons/md';
 
 // Table component
@@ -12,6 +12,8 @@ function Table({
     selectedItems,
     onSetSelectedItems,
     onHandleSelection,
+    onSortAscId,
+    onSortDescId,
  }) {
     return (
         <table>
